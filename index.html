@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <title>Music App</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <p>Body Here</p>
+
+    <table id="songList"><table>
+
+    <template id="trackTemplate">
+        <tr class="track">
+            <td class="button"><button class="button play" onclick="console.log(123)"></button></td>
+            <td class="title"></td>
+            <td class="artist"></td>
+            <td class="duration"></td>
+        </tr>
+    </template>
+
+    <audio id="player" controls>
+        <source src="data/sample.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+
+
+<script>
+
+function loadTable() {
+    let tableData =[["Sample1","John Denver","2:17"],
+                    ["Sample2","Hannah Montana","1:24"],
+                    ["Sample3","Justin Beaver","9:17"],
+                    ["Sample4","Bill Nye and this one needs to be really long","1:12"],
+                    ["Sample5","Carl Sagan","3:91"],];
+
+    const template = document.querySelector('#trackTemplate');
+    const tablebody = document.querySelector('#songList');
+
+    for(let i = 0; i < tableData.length; i++){
+        const clone = template.content.cloneNode(true);
+        let td = clone.querySelectorAll("td");
+        td[1].textContent = tableData[i][0];
+        td[2].textContent = tableData[i][1];
+        td[3].textContent = tableData[i][2];
+        tablebody.appendChild(clone);
+    }
+}
+loadTable();
+</script>

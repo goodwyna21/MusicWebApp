@@ -1,0 +1,79 @@
+
+:root {
+    --c1:#1F222A;
+    --c2:#77567A;
+    --c3:#C47AC0;
+    --c4:#E39EC1;
+    --c5:#EEBAC0;
+
+    background: var(--c1);
+}
+
+table, th, td {
+    border-collapse: collapse;
+}
+
+#songList{
+    background-color: green;
+    width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: scroll;
+    background-color: var(--c5);
+}
+
+tr.track{
+    font-size: 22px;
+    height: 40px;
+    background-color: inherit;
+}
+
+tr.track:nth-child(even){
+    background-color: var(--c4);
+}
+
+td.button{
+    width:38px;
+    text-align: center;
+}
+
+a.playButton{
+    margin:auto;
+    display:block;
+    width:50%;
+    width:30px;
+    height:30px;
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+    border-radius:50%;
+    background-color: #444;
+}
+
+.button.play{
+    width: 30px;
+    height: 30px;
+    border: solid 2px green;
+    border-radius: 15px;
+}
+
+td.title{
+    max-width:1ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+td.artist{
+    width: 30%;
+    max-width:1ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+td.duration{
+    width:10%;
+    text-align: center;
+}
