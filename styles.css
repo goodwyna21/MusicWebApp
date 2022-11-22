@@ -33,7 +33,7 @@ tr.track:nth-child(even){
     background-color: var(--c4);
 }
 
-td.button{
+td.buttonCell{
     width:38px;
     text-align: center;
 }
@@ -51,11 +51,16 @@ a.playButton{
     background-color: #444;
 }
 
-.button.play{
+td.buttonCell button{
     width: 30px;
     height: 30px;
-    border: solid 2px green;
+    border: solid 2px var(--c2);
     border-radius: 15px;
+    background-color: white;
+}
+
+td.buttonCell.currentTrack button{
+    background-color:var(--c2);
 }
 
 td.title{

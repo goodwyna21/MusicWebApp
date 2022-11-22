@@ -10,7 +10,7 @@
 
     <template id="trackTemplate">
         <tr class="track">
-            <td class="button"><button class="button play" onclick="console.log(123)"></button></td>
+            <td class="buttonCell"><button onclick="console.log(1)"></button></td>
             <td class="title"></td>
             <td class="artist"></td>
             <td class="duration"></td>
@@ -23,8 +23,17 @@
     </audio>
 </body>
 
-
 <script>
+
+let _CURRENTTRACK = 0;
+function playButton(ind){
+    const table = document.getElementById("songList").querySelectorAll("tr");
+
+    table[_CURRENTTRACK].firstElementChild.classList.remove('currentTrack');
+    table[ind].firstElementChild.classList.add('currentTrack');
+
+    _CURRENTTRACK = ind;
+}
 
 function loadTable() {
     let tableData =[["Sample1","John Denver","2:17"],
@@ -39,9 +48,18 @@ function loadTable() {
     for(let i = 0; i < tableData.length; i++){
         const clone = template.content.cloneNode(true);
         let td = clone.querySelectorAll("td");
+        const button = td[0].querySelectorAll("button")[0];
+        button.id = "play"+i;
+        button.onclick = () => { playButton(i); };
+        if(i == 0){
+            td[0].classList.add('currentTrack');
+        }
         td[1].textContent = tableData[i][0];
+        td[1].id="title"+i;
         td[2].textContent = tableData[i][1];
+        td[2].id="artist"+i;
         td[3].textContent = tableData[i][2];
+        td[3].id="duration"+i;
         tablebody.appendChild(clone);
     }
 }
